@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Queue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Priority Queue</h1>
+    <form method="POST">
+        <input type="text" name="item" placeholder="Item">
+        <input type="text" name="priority" placeholder="Priority">
+        <button type="submit" name="action" value="Enqueue">Enqueue</button>
+        <button type="submit" name="action" value="Dequeue">Dequeue</button>
+        <button type="submit" name="action" value="Traverse">Traverse</button>
+    </form>
+    <p>{{ get_flashed_messages()[0] if get_flashed_messages() else '' }}</p>
+    <p>Priority Queue: {{ items }}</p>
+    <a href="/">Go back to dashboard</a>
+</body>
+</html>

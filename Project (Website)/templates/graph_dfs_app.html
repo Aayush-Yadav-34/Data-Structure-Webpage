@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph with DFS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        button, input[type="submit"] {
+            padding: 8px 12px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        ul {
+            list-style-type: none;
+            color: red;
+        }
+
+        pre {
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graph with DFS</h1>
+    
+    <h2>Add Vertex</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Add Vertex">
+        <input type="text" name="vertex" placeholder="Vertex name">
+        <input type="submit" value="Add Vertex">
+    </form>
+
+    <h2>Add Edge</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Add Edge">
+        <input type="text" name="v1" placeholder="From vertex">
+        <input type="text" name="v2" placeholder="To vertex">
+        <input type="submit" value="Add Edge">
+    </form>
+
+    <h2>Remove Vertex</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Remove Vertex">
+        <input type="text" name="vertex" placeholder="Vertex name">
+        <input type="submit" value="Remove Vertex">
+    </form>
+
+    <h2>Remove Edge</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Remove Edge">
+        <input type="text" name="v1" placeholder="From vertex">
+        <input type="text" name="v2" placeholder="To vertex">
+        <input type="submit" value="Remove Edge">
+    </form>
+
+    <h2>Perform DFS</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="DFS">
+        <input type="text" name="start" placeholder="Start vertex">
+        <input type="submit" value="Perform DFS">
+    </form>
+
+    <h2>Graph Visualization</h2>
+    <img src="{{ url_for('graph_dfs_visualization') }}" alt="Graph Visualization">
+
+    <br>
+    <a href="/">Go back to dashboard</a>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

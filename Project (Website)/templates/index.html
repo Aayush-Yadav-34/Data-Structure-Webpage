@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Dashboard</title>
+    <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #585656;
+  background-image: url('Data-Structure.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  text-decoration: none;
+}
+/* Header Styles */
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #a64ca6;
+}
+
+/* Navigation Styles */
+
+ul {
+  list-style: none;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  margin-bottom: 0;
+  margin: 5px;
+}
+
+li a {
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: #dcdcff;
+  transition: background-color 0.3s ease;
+  width: 290px; /* Set a fixed width for all buttons */
+  text-align: center;
+  display: block;
+}
+
+.active {
+  background-color: #a64ca6;
+  color: #dcdcff
+}
+
+.active:hover {
+  background-color: #a64ca6;
+}
+    </style>
+</head>
+<body>
+    <h1>Application Dashboard</h1>
+    <ul>
+        <li><a href="/queue" class="active">Queue Application</a></li>
+        <li><a href="/stack" class="active">Stack Application</a></li>
+        <li><a href="/linked_list" class="active">linked_list Application</a></li>
+        <li><a href="/doubly_linked_list" class="active">Doubly Linked List</a></li>
+        <li><a href="/priority_queue" class="active">Priority Queue</a></li>
+        <li><a href="/binary_tree" class="active">Binary Tree</a></li>
+        <li><a href="/huffman" class="active">Huffman Coding</a></li>
+        <li><a href="/graph_dfs" class="active">GraphDFS</a></li>
+        <li><a href="/graph_bfs" class="active">Graph BFS Application</a></li>
+        <li><a href="/tsp" class="active">TSP</a></li>
+        <li><a href="/hash_table" class="active">Hash Table </a></li>
+        <li><a href="/hash_table_chaining" class="active">Hash Table Chaining</a></li>
+    </ul>
+</body>
+</html>

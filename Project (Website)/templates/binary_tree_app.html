@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Tree</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            width: 400px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"], input[type="number"] {
+            width: 190px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #434242;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background: #555;
+        }
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+        }
+        .flashes li {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Binary Tree</h1>
+    <form method="POST">
+        <input type="text" name="item" placeholder="Item">
+        <button type="submit" name="action" value="Insert">Insert</button>
+        <button type="submit" name="action" value="Traverse">Traverse</button>
+    </form>
+    <p>{{ get_flashed_messages()[0] if get_flashed_messages() else '' }}</p>
+    <p>Binary Tree (In-Order): {{ tree_elements }}</p>
+    
+    <!-- Embed the generated graph directly from the route -->
+    <img src="{{ url_for('binary_tree_graph') }}" alt="Binary Tree Graph" style="margin-top: 20px;">
+    
+    <br>
+    <a href="/">Go back to dashboard</a>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelling Salesman Problem Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    
+        input[type="text"], input[type="number"] {
+            width: 100px;
+            height: 20px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #555;
+        }
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+        }
+        .flashes li {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 900px;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Travelling Salesman Problem Application</h1>
+    
+    <form method="POST">
+        <h2>Add City</h2>
+        <input type="hidden" name="action" value="Add City">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <input type="submit" value="Add City">
+    </form>
+
+    <form method="POST">
+        <h2>Remove City</h2>
+        <input type="hidden" name="action" value="Remove City">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <input type="submit" value="Remove City">
+    </form>
+
+    <form method="POST">
+        <h2>Add Edge</h2>
+        <input type="hidden" name="action" value="Add Edge">
+        <input type="text" name="city1" placeholder="From city" required>
+        <input type="text" name="city2" placeholder="To city" required>
+        <input type="number" name="distance" placeholder="Distance" step="0.1" required>
+        <input type="submit" value="Add Edge">
+    </form>
+
+    <form method="POST">
+        <h2>Solve TSP</h2>
+        <input type="hidden" name="action" value="Solve">
+        <input type="submit" value="Solve TSP">
+    </form>
+
+    <h2>Graph Visualization</h2>
+    <img src="{{ url_for('tsp_visualization') }}" alt="TSP Graph">
+
+    <h2>Cities</h2>
+    <ul>
+    {% for city in cities %}
+        <li>{{ city }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Edges</h2>
+    <ul>
+    {% for (city1, city2), distance in edges.items() %}
+        <li>{{ city1 }} - {{ city2 }}: {{ distance }}</li>
+    {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/">Go back to dashboard</a>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

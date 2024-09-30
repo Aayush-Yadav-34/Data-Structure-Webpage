@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function toggleInput(action) {
+            var itemInput = document.getElementById('item');
+            if (action === 'Push') {
+                itemInput.style.display = 'inline';
+                itemInput.required = true;
+            } else {
+                itemInput.style.display = 'none';
+                itemInput.required = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Stack Application</h1>
+
+    <form method="POST">
+        <label for="item" id="item-label">Enter item to push:</label>
+        <input type="text" name="item" id="item" style="display: none;">
+        
+        <button type="submit" name="action" value="Push" onclick="toggleInput('Push')">Push</button>
+        <button type="submit" name="action" value="Pop" onclick="toggleInput('Pop')">Pop</button>
+        <button type="submit" name="action" value="Peek" onclick="toggleInput('Peek')">Peek</button>
+        <button type="submit" name="action" value="Size" onclick="toggleInput('Size')">Size</button>
+    </form>
+
+    <h2>Stack: {{ stack_items }}</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <a href="/">Go back to dashboard</a>
+</body>
+</html>

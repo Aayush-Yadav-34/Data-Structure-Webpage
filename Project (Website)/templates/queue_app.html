@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Queue Application</h1>
+
+    <form method="POST">
+        <label for="item">Enter item to enqueue:</label>
+        <input type="text" name="item" id="item">
+        <button type="submit" name="action" value="Enqueue">Enqueue</button>
+        <button type="submit" name="action" value="Dequeue">Dequeue</button>
+        <button type="submit" name="action" value="Peek">Peek</button>
+        <button type="submit" name="action" value="Size">Size</button>
+    </form>
+
+    <h2>Queue: {{ queue_items }}</h2>
+
+    <!-- Display flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <a href="/">Go back to dashboard</a>
+</body>
+</html>

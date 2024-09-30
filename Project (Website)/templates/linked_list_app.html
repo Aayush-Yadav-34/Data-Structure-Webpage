@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Linked List</h1>
+
+    <!-- Form for inserting items -->
+    <form method="POST">
+        <input type="text" name="item" placeholder="Item" required>
+        <button type="submit" name="action" value="Insert at Beginning">Insert at Beginning</button>
+        <button type="submit" name="action" value="Insert at End">Insert at End</button>
+    </form>
+
+    <!-- Form for deleting items -->
+    <form method="POST">
+        <button type="submit" name="action" value="Delete at Beginning">Delete at Beginning</button>
+        <button type="submit" name="action" value="Delete at End">Delete at End</button>
+    </form>
+
+    <!-- Form for traversing the list -->
+    <form method="POST">
+        <button type="submit" name="action" value="Traverse">Traverse</button>
+    </form>
+
+    <p>{{ get_flashed_messages()[0] if get_flashed_messages() else '' }}</p>
+    <p>Linked List: {{ linked_list_items }}</p>
+    <a href="/">Go back to dashboard</a>
+</body>
+</html>

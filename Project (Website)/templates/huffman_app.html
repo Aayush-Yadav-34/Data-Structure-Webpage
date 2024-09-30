@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huffman Coding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            margin: 10px 0;
+        }
+
+        textarea {
+            padding: 8px;
+            font-size: 14px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        input[type="submit"] {
+            padding: 8px 12px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        p {
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: fit-content;
+        }
+
+        ul {
+            list-style-type: none;
+            color: red;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #5cb85c;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Huffman Coding</h1>
+    
+    <form method="POST">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text to encode"></textarea>
+        <br>
+        <input type="submit" value="Encode">
+    </form>
+
+    {% if encoded_text %}
+    <h2>Encoded Text:</h2>
+    <p>{{ encoded_text }}</p>
+    {% endif %}
+
+    <h2>Huffman Tree Visualization</h2>
+    
+    <br>
+    <a href="/">Go back to dashboard</a>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

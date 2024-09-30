@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Table with Chaining</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        button, input[type="submit"] {
+            padding: 8px 12px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        pre {
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hash Table with Chaining</h1>
+    
+    <h2>Insert</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Insert">
+        <input type="text" name="value" placeholder="Value" required>
+        <input type="submit" value="Insert">
+    </form>
+
+    <h2>Delete</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Delete">
+        <input type="text" name="value" placeholder="Value" required>
+        <input type="submit" value="Delete">
+    </form>
+
+    <h2>Search</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="Search">
+        <input type="text" name="value" placeholder="Value" required>
+        <input type="submit" value="Search">
+    </form>
+
+    <h2>Hash Table Content</h2>
+    <ul>
+    {% for index, bucket in items %}
+        <li>Bucket {{ index }}: {{ bucket }}</li>
+    {% endfor %}
+    </ul>
+    
+    <br>
+    <a href="/">Go back to dashboard</a>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>
