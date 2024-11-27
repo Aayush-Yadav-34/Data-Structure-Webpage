@@ -18,3 +18,38 @@ The application provides functionality for the following data structures:
 8. **Graph (DFS & BFS)**: Add/Remove vertices and edges, perform depth-first search (DFS) and breadth-first search (BFS).
 9. **Traveling Salesman Problem (TSP)**: Add cities and distances, and find the shortest path.
 10. **Hash Tables**: Implementations with and without chaining to handle collisions.
+
+## Installation and Setup
+
+### Prerequisites
+- Python 3.7 or higher
+- Flask
+- Additional libraries: `matplotlib`, `networkx`, `pydot`, `graphviz`
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+3. Run the Flask application:
+   ```bash
+   python app.py
+
+4. Open your web browser and navigate to:
+   ```bash
+    http://127.0.0.1:5000
+
+## File Structure:
+**app.py**: Main Flask application file defining routes and integrating backend logic.
+**Logic Files**: Contain Python implementations for each data structure (e.g., binary_tree_logic.py).
+**Templates**: HTML templates for rendering web pages.
+  index.html: Dashboard for navigating between data structure applications.
+  Other templates correspond to individual data structure interfaces.
+**Static Assets**: Contains CSS, images, or other static files for styling.
+    
