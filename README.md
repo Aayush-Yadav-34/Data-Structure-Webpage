@@ -44,12 +44,4 @@ The application provides functionality for the following data structures:
 4. Open your web browser and navigate to:
    ```bash
     http://127.0.0.1:5000
-
-## File Structure:
-**app.py**: Main Flask application file defining routes and integrating backend logic.
-**Logic Files**: Contain Python implementations for each data structure (e.g., binary_tree_logic.py).
-**Templates**: HTML templates for rendering web pages.
-  index.html: Dashboard for navigating between data structure applications.
-  Other templates correspond to individual data structure interfaces.
-**Static Assets**: Contains CSS, images, or other static files for styling.
     
